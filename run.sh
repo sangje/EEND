@@ -4,7 +4,7 @@ ulimit -S -n 4096
 
 export PYTHONPATH=`pwd`:$PYTHONPATH
 
-exp_dir=exp_large
+exp_dir=exp_SJ
 conf_dir=conf/large
 
 train_dir=data/simu/data/swb_sre_tr_ns2_beta2_100000
@@ -19,8 +19,9 @@ adapt_conf=$conf_dir/adapt.yaml
 init_model=$model_dir/avg.th
 
 infer_conf=$conf_dir/infer.yaml
-test_dir=data/eval/callhome2_spk2
-test_model=$model_adapt_dir/avg.th
+test_dir=../DATA/voxsrc_testdata
+#test_model=$model_adapt_dir/avg.th
+test_model=pretrained_models/large/model_callhome.th
 infer_out_dir=$exp_dir/infer/callhome
 # test_dir=data/simu/data/swb_sre_cv_ns2_beta2_500
 # test_model=$model_dir/avg.th
@@ -30,7 +31,7 @@ work=$infer_out_dir/.work
 scoring_dir=$exp_dir/score/callhome
 # scoring_dir=$exp_dir/score/simu
 
-stage=1
+stage=5
 
 # Training
 if [ $stage -le 1 ]; then
