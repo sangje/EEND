@@ -84,6 +84,8 @@ def load_wav(wav_rxfilename, start=0, end=None):
 
 
 def load_utt2spk(utt2spk_file):
+    if not os.path.exists(utt2spk_file):
+        return None
     """ returns dictionary { uttid: spkid } """
     lines = [line.strip().split(None, 1) for line in open(utt2spk_file)]
     return {x[0]: x[1] for x in lines}
