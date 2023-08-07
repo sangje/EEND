@@ -38,4 +38,4 @@ with open(args.out_rttm_file, 'w') as wf:
                       session,
                       s * args.frame_shift * args.subsampling / args.sampling_rate,
                       (e - s) * args.frame_shift * args.subsampling / args.sampling_rate,
-                      str(spkid)), file=wf)
+                      str(spkid+1)), file=wf)
