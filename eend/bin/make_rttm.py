@@ -32,10 +32,10 @@ with open(args.out_rttm_file, 'w') as wf:
         for spkid, frames in enumerate(a.T):
             frames = np.pad(frames, (1, 1), 'constant')
             changes, = np.where(np.diff(frames, axis=0) != 0)
-            fmt = "SPEAKER {:s} 1 {:7.2f} {:7.2f} <NA> <NA> {:s} <NA>"
+            fmt = "SPEAKER {:s} 1 {:7.2f} {:7.2f} <NA> <NA> {:s} <NA> <NA>"
             for s, e in zip(changes[::2], changes[1::2]):
                 print(fmt.format(
                       session,
                       s * args.frame_shift * args.subsampling / args.sampling_rate,
                       (e - s) * args.frame_shift * args.subsampling / args.sampling_rate,
-                      session + "_" + str(spkid)), file=wf)
+                      str(spkid)), file=wf)
